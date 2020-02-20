@@ -71,7 +71,7 @@ def main():
                , os.getenv("SYNOLOGY_NAS_BOT_PASSWORD"))
 
     # Create the EventHandler
-    updater = Updater(os.getenv("SYNOLOGY_NAS_BOT_TOKEN"))
+    updater = Updater(os.getenv("SYNOLOGY_NAS_BOT_TOKEN") , use_context=True)
     dp = updater.dispatcher
 
     # On different commands - answer in Telegram
