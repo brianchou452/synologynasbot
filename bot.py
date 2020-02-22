@@ -16,11 +16,11 @@ logger = logging.getLogger(__name__)
 
 # Texts “consts”
 TEXTS = {
-    'start': 'sent me links one by one, I’ll create download tasks for you',
-    'error_not_owner': 'sorry, I only take orders from my master, get your own bot at https://github.com/idealhack/synologynasbot',
+    'start': '一次給我一個連結，我將為您創建下載任務',
+    'error_not_owner': '對不起我只效忠於我的主人，你可以在 https://github.com/idealhack/synologynasbot 建立一個自己的bot。sorry, I only take orders from my master, get your own bot at https://github.com/idealhack/synologynasbot',
     'error_link': 'please send me a valid link (magnet or http)',
     'error_syno': 'an error occurred, please make sure it’s a valid link and try again',
-    'created': 'download task created',
+    'created': '成功新增下載任務',
     'magnet_prefix': 'magnet:?xt=urn:btih:',
     'http_prefix': 'http',
 }
