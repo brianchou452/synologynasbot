@@ -81,7 +81,7 @@ def main():
 
     # On different commands - answer in Telegram
     dp.add_handler(CommandHandler("start", start))
-	 dp.add_handler(CommandHandler("目前的任務", nowmission))
+	 dp.add_handler(CommandHandler("NowMission", nowmission))
     dp.add_handler(MessageHandler(Filters.text, text))
 
     # Log all errors
