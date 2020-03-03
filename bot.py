@@ -4,6 +4,7 @@
 """A Telegram bot for Synology NAS"""
 
 import logging
+import json
 import os
 from synolopy import NasApi
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
@@ -34,11 +35,11 @@ def start(bot, update):
 
 def nowmission(bot, update):
 	update.message.reply_text(TEXTS['nowmissionstart'])
-	reply=nas.downloadstation.task.request('list')
-	for item in reply:
+	json_array = json.load(nas.downloadstation.task.request('list'))
+	for item in json_array:
 		replytxt = item['title'] + "\n" + item['status']
 		update.message.reply_text(replytxt)
-	
+	update.message.reply_text("end \n ll")
 
 
 def text(bot, update):
