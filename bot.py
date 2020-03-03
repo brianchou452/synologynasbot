@@ -34,7 +34,11 @@ def start(bot, update):
 
 def nowmission(bot, update):
 	update.message.reply_text(TEXTS['nowmissionstart'])
-	update.message.reply_text(nas.downloadstation.task.request('list'))
+	reply=nas.downloadstation.task.request('list')
+	for item in reply:
+		replytxt = item['title'] + "\n" + item['status']
+		update.message.reply_text(replytxt)
+	
 
 
 def text(bot, update):
@@ -76,7 +80,7 @@ def main():
                , os.getenv("SYNOLOGY_NAS_BOT_PASSWORD"))
 
     # Create the EventHandler
-    updater = Updater(os.getenv("SYNOLOGY_NAS_BOT_TOKEN"))
+    updater = Updater(os.getenv("SYNOLOGY_NAS_BOT_TOKEN"), use_context=True)
     dp = updater.dispatcher
 
     # On different commands - answer in Telegram
