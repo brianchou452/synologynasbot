@@ -18,11 +18,12 @@ logger = logging.getLogger(__name__)
 TEXTS = {
     'start': '一次給我一個連結，我將為您創建下載任務',
     'error_not_owner': '對不起我只效忠於我的主人，你可以在 https://github.com/idealhack/synologynasbot 建立一個自己的bot。sorry, I only take orders from my master, get your own bot at https://github.com/idealhack/synologynasbot',
-    'error_link': 'please send me a valid link (magnet or http)',
+    'error_link': '請傳給我有效的連結 (magnet or http)',
     'error_syno': 'an error occurred, please make sure it’s a valid link and try again',
     'created': '成功新增下載任務',
     'magnet_prefix': 'magnet:?xt=urn:btih:',
     'http_prefix': 'http',
+	 'nowmissionstart':'now mission start' ,
 }
 
 
@@ -30,6 +31,10 @@ TEXTS = {
 def start(bot, update):
     """Send a message when the command /start is issued."""
     update.message.reply_text(TEXTS['start'])
+
+def nowmission(bot, update):
+	update.message.reply_text(TEXTS['nowmissionstart'])
+	update.message.reply_text(nas.downloadstation.task.request('list'))
 
 
 def text(bot, update):
@@ -76,6 +81,7 @@ def main():
 
     # On different commands - answer in Telegram
     dp.add_handler(CommandHandler("start", start))
+	 dp.add_handler(CommandHandler("目前的任務", nowmission))
     dp.add_handler(MessageHandler(Filters.text, text))
 
     # Log all errors
