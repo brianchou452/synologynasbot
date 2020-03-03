@@ -35,7 +35,8 @@ def start(bot, update):
 
 def nowmission(bot, update):
 	update.message.reply_text(TEXTS['nowmissionstart'])
-	json_array = json.load(nas.downloadstation.task.request('list'))
+	s = json.dumps(nas.downloadstation.task.request('list'))
+	json_array = json.load(s)
 	for item in json_array:
 		replytxt = item['title'] + "\n" + item['status']
 		update.message.reply_text(replytxt)
