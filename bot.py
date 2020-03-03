@@ -39,7 +39,7 @@ def nowmission(bot, update):
 	json_array = json.load(s)
 	for item in json_array:
 		replytxt = item['title'] + "\n" + item['status']
-		update.message.reply_text(replytxt)
+		update.message.reply_text(nas.downloadstation.task.request('list'))
 	update.message.reply_text("end \n ll")
 
 
