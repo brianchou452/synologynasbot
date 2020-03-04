@@ -35,11 +35,14 @@ def start(bot, update):
 
 def nowmission(bot, update):
 	update.message.reply_text(TEXTS['nowmissionstart'])
-	json_array = json.loads(nas.downloadstation.task.request('list'))
-	"""update.message.reply_text(nas.downloadstation.task.request('list'))"""
-	for i in range(0,json_array[0]['total'],1):
-		replytxt = json_array[0]['tasks'][i]['title'] + "\n" + json_array[0]['tasks'][i]['status']
-		update.message.reply_text(nas.downloadstation.task.request('list'))
+	
+	s =	json.dumps(nas.downloadstation.task.request('list'))
+	json_array = json.loads(s)
+	s2 = json.dumps(json_array['tasks'])
+	json_array2 = json.loads(s2)
+	for i in range(0,json_array['total'],1):
+		replytxt = json_array2[i]['title'] + "\n" + json_array2[i]['status']
+		update.message.reply_text(replytxt)
 	update.message.reply_text("end \n ll")
 
 
