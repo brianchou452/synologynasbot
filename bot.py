@@ -40,7 +40,7 @@ def nowmission(bot, update):
 	json_array = json.loads(s)
 	s2 = json.dumps(json_array['tasks'])
 	json_array2 = json.loads(s2)
-	update.message.reply_text("總共有" + json_array['total'] + "個任務")
+	update.message.reply_text("總共有" + str(json_array['total']) + "個任務")
 	for i in range(0,json_array['total'],1):
 		replytxt = "標題:" + json_array2[i]['title'] + "\n" + "狀態:" + json_array2[i]['status']
 		update.message.reply_text(replytxt)
