@@ -8,6 +8,9 @@ import json
 import os
 from synolopy import NasApi
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
+import sys
+reload(sys)
+sys.setdefaultencoding('utf-8')
 
 # Enable logging
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
