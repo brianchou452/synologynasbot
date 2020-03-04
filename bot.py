@@ -17,14 +17,14 @@ logger = logging.getLogger(__name__)
 
 # Texts “consts”
 TEXTS = {
-    'start': '一次給我一個連結，我將為您創建下載任務',
+    'start': '一次給我一個連結，我將為您創建下載任務 \n 查詢目前任務： /NowMission ',
     'error_not_owner': '對不起我只效忠於我的主人，你可以在 https://github.com/idealhack/synologynasbot 建立一個自己的bot。sorry, I only take orders from my master, get your own bot at https://github.com/idealhack/synologynasbot',
     'error_link': '請傳給我有效的連結 (magnet or http)',
     'error_syno': 'an error occurred, please make sure it’s a valid link and try again',
     'created': '成功新增下載任務',
     'magnet_prefix': 'magnet:?xt=urn:btih:',
     'http_prefix': 'http',
-	 'nowmissionstart':'now mission start' ,
+	 'nowmissionstart':'查詢中' ,
 }
 
 
@@ -40,10 +40,11 @@ def nowmission(bot, update):
 	json_array = json.loads(s)
 	s2 = json.dumps(json_array['tasks'])
 	json_array2 = json.loads(s2)
+	update.message.reply_text("總共有" + json_array['total'] + "個任務")
 	for i in range(0,json_array['total'],1):
-		replytxt = json_array2[i]['title'] + "\n" + json_array2[i]['status']
+		replytxt = "標題:" + json_array2[i]['title'] + "\n" + "狀態:" + json_array2[i]['status']
 		update.message.reply_text(replytxt)
-	update.message.reply_text("end \n ll")
+	update.message.reply_text("結束")
 
 
 def text(bot, update):
