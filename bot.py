@@ -56,6 +56,7 @@ def clearallmission(bot, update):
 	json_array = json.loads(s)
 	s2 = json.dumps(json_array['tasks'])
 	json_array2 = json.loads(s2)
+	replyid = ""
 	for i in range(0,json_array['total']-1,1):
 		replyid = replyid + json_array2[i]['id'] + ","
 	replyid = replyid + json_array2[json_array['total']-1]['id']
