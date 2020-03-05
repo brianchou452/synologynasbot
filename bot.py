@@ -60,7 +60,7 @@ def clearallmission(bot, update):
 	for i in range(0,json_array['total']-1,1):
 		replyid = replyid + json_array2[i]['id'] + ","
 	replyid = replyid + json_array2[json_array['total']-1]['id']
-	nas.downloadstation.task.request('delete' , replyid)
+	nas.downloadstation.task.request('delete' , id=replyid)
 	update.message.reply_text("完成")
 
 
