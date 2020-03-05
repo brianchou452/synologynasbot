@@ -57,10 +57,9 @@ def clearallmission(bot, update):
 	s2 = json.dumps(json_array['tasks'])
 	json_array2 = json.loads(s2)
 	for i in range(0,json_array['total']-1,1):
-		nonlocal replytxt
-		replytxt = replytxt + json_array2[i]['id'] + ","
-	replytxt = replytxt + json_array2[json_array['total']-1]['id']
-	nas.downloadstation.task.request('delete' , replytxt)
+		replyid = replyid + json_array2[i]['id'] + ","
+	replyid = replyid + json_array2[json_array['total']-1]['id']
+	nas.downloadstation.task.request('delete' , replyid)
 	update.message.reply_text("完成")
 
 
