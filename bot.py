@@ -20,7 +20,7 @@ logger = logging.getLogger(__name__)
 
 # Texts “consts”
 TEXTS = {
-    'start': '一次給我一個連結，我將為您創建下載任務 \n 查詢目前任務： /NowMission ',
+    'start': '一次給我一個連結，我將為您創建下載任務 \n 查詢目前任務： /NowMission  \n 刪除所有任務： /ClearAllMission',
     'error_not_owner': '對不起我只效忠於我的主人，你可以在 https://github.com/idealhack/synologynasbot 建立一個自己的bot。sorry, I only take orders from my master, get your own bot at https://github.com/idealhack/synologynasbot',
     'error_link': '請傳給我有效的連結 (magnet or http)',
     'error_syno': 'an error occurred, please make sure it’s a valid link and try again',
@@ -28,6 +28,7 @@ TEXTS = {
     'magnet_prefix': 'magnet:?xt=urn:btih:',
     'http_prefix': 'http',
 	 'nowmissionstart':'查詢中' ,
+	'startclear':'清除任務中'
 }
 
 
@@ -48,6 +49,18 @@ def nowmission(bot, update):
 		replytxt = "標題：" + json_array2[i]['title'] + "\n" + "狀態：" + json_array2[i]['status']
 		update.message.reply_text(replytxt)
 	update.message.reply_text("結束")
+
+def clearallmission(bot, update):
+	update.message.reply_text(TEXTS['startclear'])
+	s =	json.dumps(nas.downloadstation.task.request('list'))
+	json_array = json.loads(s)
+	s2 = json.dumps(json_array['tasks'])
+	json_array2 = json.loads(s2)
+	for i in range(0,json_array['total']-1,1):
+		replytxt = replytxt + json_array2[i]['id'] + ","
+	replytxt = replytxt + json_array2[json_array['total']-1]['id']
+	nas.downloadstation.task.request('delete' , replytxt)
+	update.message.reply_text("完成")
 
 
 def text(bot, update):
@@ -95,6 +108,7 @@ def main():
     # On different commands - answer in Telegram
     dp.add_handler(CommandHandler("start", start))
     dp.add_handler(CommandHandler("NowMission", nowmission))
+    dp.add_handler(CommandHandler("ClearAllMission", clearallmission))
     dp.add_handler(MessageHandler(Filters.text, text))
 
     # Log all errors
