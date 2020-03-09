@@ -1,7 +1,8 @@
 # Synology NAS Bot
 
 🤖 專為 synology NAS 設計的 Telegram Bot 
-fork from [idaelhack](https://github.com/idealhack/synologynasbot)
+
+\n fork from [idaelhack](https://github.com/idealhack/synologynasbot)
 
 ## 功能
 
