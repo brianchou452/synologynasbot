@@ -1,34 +1,32 @@
 # Synology NAS Bot
 
-🤖 A Telegram bot for Synology NAS
+🤖 專為 synology NAS 設計的 Telegram Bot 
+fork from [idaelhack](https://github.com/idealhack/synologynasbot)
 
-## Features
+## 功能
 
-- Create download tasks
+- 建立下載任務
+- 列出目前的下載任務
+- 清除全部的下載任務
 
-Note: this bot should be full featured later by wrapping Synology’s CGI-based API, though it’s OK to use it now.
 
-## Usage
+## 使用說明
 
-1. [Deploy to Heroku](https://heroku.com/deploy?template=https://github.com/idealhack/synologynasbot)
-1. Talk to [@BotFather](https://t.me/BotFather) on Telegram, create your bot.
-1. Open your Heroku app **Settings** page, set these **Config Variables**:
-    - `SYNOLOGY_NAS_BOT_TOKEN`: The bot’s API token, @BotFather just told you that
-    - `SYNOLOGY_NAS_BOT_OWNER`: Your Telegram username, *A robot must obey the orders given it by its master*
-    - `SYNOLOGY_NAS_BOT_URL`: Synology URL, should be this form: `https://id.synology.me:port/webapi/`
-    - `SYNOLOGY_NAS_BOT_ACCOUNT`: Synology account name
-    - `SYNOLOGY_NAS_BOT_PASSWORD`: Synology account password
-1. Open your Heroku app **Resources** page, make sure the bot is running.
-1. Talk to your lovely bot, it’s all yours.
+1. [在Heroku上部署](https://heroku.com/deploy?template=https://github.com/idealhack/synologynasbot)
+1. 開啟Telegram 透過 [@BotFather](https://t.me/BotFather) 建立一個聊天機器人
+1. 打開 Heroku app **Settings** 頁面, 設定以下 **Config Variables**:
+    - `SYNOLOGY_NAS_BOT_TOKEN`: Telegram 的API token 可向 @BotFather 索取
+    - `SYNOLOGY_NAS_BOT_OWNER`: 你的 Telegram username, *機器人只服從來自主人的命令*
+    - `SYNOLOGY_NAS_BOT_URL`: 你的 Synology NAS URL, 格式長這樣: `https://id.synology.me:port/webapi/`
+    - `SYNOLOGY_NAS_BOT_ACCOUNT`: Synology NAS 的帳號
+    - `SYNOLOGY_NAS_BOT_PASSWORD`: Synology NAS 的密碼
+1. 打開你的 Heroku app **Resources** 頁面, 檢查你的機器人是否在運行.
+1. 恭喜你！ 完成了 可以開始使用你的機器人了.
 
-## Alternatives
+## 其他方案 
 
 [moviemagnetbot](https://github.com/magunetto/moviemagnetbot): create (Magnet/eD2k/FTP) download tasks by RSS feed
 
-## Troubleshooting
+## 除錯
 
-Open your Heroku app **View logs** page, see what’s going on.
-
-## Contributing
-
-Bugs? Features? Issues and pull requests are welcome.
+打開你的 Heroku app **View logs** 頁面, 看看發生了什麼.
