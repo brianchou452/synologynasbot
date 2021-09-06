@@ -77,8 +77,8 @@ def text(bot, update):
     logger.info('got message "%s"', t)
 	
     if (t == '0') or (t == '1') or (t == '2'):
-	b = random.randomint(0,3)
-	#update.message.reply_text(str(b))
+	b = random.randint(0,3)
+	update.message.reply_text('電腦出：' + str(b))
 	if t == str(b):
 		update.message.reply_text('平手')
 	elif (t == '0') and (str(b) == '1'):
