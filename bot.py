@@ -83,7 +83,7 @@ def text(bot, update):
 		2 : '布'
 	}
 	b = random.randint(0,3)
-	update.message.reply_text('電腦出：' + type[b])
+	update.message.reply_text('電腦出：' + TYPE_TEXT[b])
 	if t == str(b):
 		update.message.reply_text('你出：' + TYPE_TEXT[int(t)])
 		update.message.reply_text('平手')
