@@ -73,6 +73,9 @@ def text(bot, update):
         update.message.reply_text(TEXTS['error_not_owner'])
         return
 
+    t = update.message.text
+    logger.info('got message "%s"', t)
+	
     if (t == '0') or (t == '1') or (t == '2'):
 	b = random.randomint(0,3)
 	update.message.reply_text(str(b))
@@ -92,8 +95,7 @@ def text(bot, update):
 		update.message.reply_text("你輸了")
 	return
 
-    t = update.message.text
-    logger.info('got message "%s"', t)
+   
 
     # if it’s not a link, tell the user
     if not t.startswith(TEXTS['magnet_prefix']) and not t.startswith(TEXTS['http_prefix']):
