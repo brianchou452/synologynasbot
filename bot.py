@@ -9,7 +9,7 @@ import os
 from synolopy import NasApi
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 import sys
-import random 
+import random #遊戲用
 reload(sys)
 sys.setdefaultencoding('utf-8')
 
