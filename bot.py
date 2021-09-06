@@ -23,7 +23,7 @@ logger = logging.getLogger(__name__)
 TEXTS = {
     'start': '一次給我一個連結，我將為您創建下載任務 \n 查詢目前任務： /NowMission  \n 刪除所有任務： /ClearAllMission  \n剪刀石頭布小遊戲： \n輸入 0是剪刀 1是石頭 2是布',
     'error_not_owner': '對不起我只效忠於我的主人，你可以在 https://github.com/idealhack/synologynasbot 建立一個自己的bot。sorry, I only take orders from my master, get your own bot at https://github.com/idealhack/synologynasbot',
-    'error_link': '請傳給我有效的連結 (magnet or http)',
+    'error_link': '請傳給我有效的連結 (magnet or http) 或是0,1,2來跟我玩遊戲',
     'error_syno': 'an error occurred, please make sure it’s a valid link and try again',
     'created': '成功新增下載任務',
     'magnet_prefix': 'magnet:?xt=urn:btih:',
@@ -85,20 +85,27 @@ def text(bot, update):
 	b = random.randint(0,3)
 	update.message.reply_text('電腦出：' + type[b])
 	if t == str(b):
+		update.message.reply_text('你出：' + type[int(t)])
 		update.message.reply_text('平手')
 	elif (t == '0') and (str(b) == '1'):
+		update.message.reply_text('你出：' + type[int(t)])
 		update.message.reply_text('你輸了')
 	elif (t == '0') and (str(b) == '2'):
+		update.message.reply_text('你出：' + type[int(t)])
 		update.message.reply_text('你贏了')
 	elif (t == '1') and (str(b) == '0'):
+		update.message.reply_text('你出：' + type[int(t)])
 		update.message.reply_text('你贏了')
 	elif (t == '1') and (str(b) == '2'):
+		update.message.reply_text('你出：' + type[int(t)])
 		update.message.reply_text('你輸了')
 	elif (t == '2') and (str(b) == '1'):
+		update.message.reply_text('你出：' + type[int(t)])
 		update.message.reply_text('你贏了')
 	elif (t == '2') and (str(b) == '0'):
+		update.message.reply_text('你出：' + type[int(t)])
 		update.message.reply_text('你輸了')
-	#return
+	return
 
    
 
