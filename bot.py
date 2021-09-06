@@ -78,22 +78,22 @@ def text(bot, update):
 	
     if (t == '0') or (t == '1') or (t == '2'):
 	b = random.randomint(0,3)
-	update.message.reply_text(str(b))
+	#update.message.reply_text(str(b))
 	if t == str(b):
-		update.message.reply_text("平手")
+		update.message.reply_text('平手')
 	elif (t == '0') and (str(b) == '1'):
-		update.message.reply_text("你輸了")
+		update.message.reply_text('你輸了')
 	elif (t == '0') and (str(b) == '2'):
-		update.message.reply_text("你贏了")
+		update.message.reply_text('你贏了')
 	elif (t == '1') and (str(b) == '0'):
-		update.message.reply_text("你贏了")
+		update.message.reply_text('你贏了')
 	elif (t == '1') and (str(b) == '2'):
-		update.message.reply_text("你輸了")
+		update.message.reply_text('你輸了')
 	elif (t == '2') and (str(b) == '1'):
-		update.message.reply_text("你贏了")
+		update.message.reply_text('你贏了')
 	elif (t == '2') and (str(b) == '0'):
-		update.message.reply_text("你輸了")
-	return
+		update.message.reply_text('你輸了')
+	#return
 
    
 
